@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { gameData } from '../scenario';
+import { selectStrategy } from '../services/CoinStrategy';
 import './game.css'
 
 const RenderPage = ({objPage, setPageId}) => {
+	let getPath = selectStrategy();
+	console.log('path', getPath)
 	return (
 		<div className='main_page' style={{backgroundImage: `url(${objPage.image})`}}>
 			{
@@ -29,22 +32,21 @@ const RenderPage = ({objPage, setPageId}) => {
 								key={index + 'c'} 
 								className='answer_button' 
 								onClick={(e) => {
-									console.log('e id', e.currentTarget.id)
 									setPageId(e.currentTarget.id)
-									return (<MainGame id={e.currentTarget.id} />)
+									return (<MainGame id={e.currentTarget.id} setPageId={setPageId} />)
 							}}
 							>
 								{el.text}
 							</button>
 						)})}
 					</div>)
-					: 'coin'
+					: "coin"
 			}
 		</div>
 	)
 }
 
-export const MainGame = ({ id }) => {
+export function MainGame({ id }) {
 	const [pageId, setPageId] = useState(id)
 	let newPageItem = gameData.find(elem => elem.id === id)
 	const [pageItem, setPageItem] = useState(newPageItem)
