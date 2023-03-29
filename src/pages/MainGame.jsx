@@ -1,11 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { gameData } from '../scenario';
-import { selectStrategy } from '../services/CoinStrategy';
-import './game.css'
+import './game.css';
 
 const RenderPage = ({objPage, setPageId}) => {
-	let getPath = selectStrategy();
-	console.log('path', getPath)
 	return (
 		<div className='main_page' style={{backgroundImage: `url(${objPage.image})`}}>
 			{
