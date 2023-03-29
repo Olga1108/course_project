@@ -27,8 +27,6 @@ class TailsSaid extends AbstractStrategy{
     }
 }
 
-
-
 export const selectStrategy = () => {
 	let sideType = executeSpecificLuckGenerator("Coin")
 	switch (sideType) {

@@ -17,6 +17,7 @@ const RenderPage = ({objPage, setPageId}) => {
 				objPage?.nextPageId ? (
 				<button 
 					id={objPage?.nextPageId} 
+					className='next_button'
 					onClick={(e) => {
 						setPageId(e.currentTarget.id)
 						return (<MainGame id={e.currentTarget.id} />)
