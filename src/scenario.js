@@ -1,5 +1,6 @@
 import images from './assets/images';
 import { selectStrategy } from './services/CoinStrategy';
+
 let getPage = selectStrategy();
 	export const gameData = [
 		{ 
@@ -183,7 +184,7 @@ let getPage = selectStrategy();
 				'Якось жестами та знаками вдалось вмовити хлопчину піти на узбережжя, де Ви показали на човен і пояснили,', 
 				'що човен треба полагодити. Вже світало. Хлопець повернувся до свого табору, а Ви лягли спати...' 
 				], 
-			nextPageId: '11'   
+			nextPageId: '13'   
 		},
 	]
 
