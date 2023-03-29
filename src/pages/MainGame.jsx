@@ -1,10 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import { gameData } from '../scenario';
+import { useNavigate } from 'react-router-dom';
+import currentUser from '../services/UserName';
 import './game.css';
 
 const RenderPage = ({objPage, setPageId}) => {
+	const currentName = currentUser.getFromStorage();
+	const navigate = useNavigate()
 	return (
 		<div className='main_page' style={{backgroundImage: `url(${objPage.image})`}}>
+			<span className='main_text'>{currentName},</span>
 			{
 				objPage?.textContent?.map((elem, index) => {
 					return <p className='main_text' key={index + 'b'}>{elem}</p>
@@ -30,9 +35,14 @@ const RenderPage = ({objPage, setPageId}) => {
 								key={index + 'c'} 
 								className='answer_button' 
 								onClick={(e) => {
-									setPageId(e.currentTarget.id)
-									return (<MainGame id={e.currentTarget.id} setPageId={setPageId} />)
-							}}
+									if (el?.nextPageId === '1' ) {
+										currentUser.deleteFromStorage();
+										navigate('/')
+									} else {
+										setPageId(e.currentTarget.id)
+										return (<MainGame id={e.currentTarget.id} setPageId={setPageId} />)
+									}
+								}}
 							>
 								{el.text}
 							</button>
@@ -52,6 +62,7 @@ export function MainGame({ id }) {
 	useEffect(() => {
 		setPageItem(gameData.find(elem => elem.id === pageId))
 	}, [pageId])
+
 	return (
 		<RenderPage objPage={pageItem} setPageId={setPageId}/>
 	)
