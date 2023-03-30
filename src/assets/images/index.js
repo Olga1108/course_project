@@ -13,6 +13,7 @@ const images = {
 	screen_12: require('./coin_on_palm.jpeg'),
 	screen_13: require('./hospital.jpeg'),
 	screen_14: require('./one_tiger.jpeg'),
+	screen_15: require('./head_coin.jpeg')
 }
 
 export default images;

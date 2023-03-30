@@ -178,7 +178,7 @@ let getPage = selectStrategy();
 			]
 		},{ 
 			id: '15', 
-			image: images.screen_12,      
+			image: images.screen_15,      
 			textContent: [ 
 				'"ОРЕЛ"', 
 				'Якось жестами та знаками вдалось вмовити хлопчину піти на узбережжя, де Ви показали на човен і пояснили,', 
