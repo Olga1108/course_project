@@ -29,6 +29,7 @@ class TailsSaid extends AbstractStrategy{
 
 export const selectStrategy = () => {
 	let sideType = executeSpecificLuckGenerator("Coin")
+	console.log('sideType', sideType)
 	switch (sideType) {
 		case "Heads":
 			return new StrategySolution(new HeadsSide()).resultStrategy();

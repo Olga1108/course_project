@@ -48,5 +48,6 @@ export function executeSpecificLuckGenerator(luckType) {
     for (let iteration = 0; iteration < 3; iteration++) {
         console.log(`Test #${iteration}, LuckGenerator '${luckGenerator.getType()}': ${luckGenerator.generateNext()}`);
     }
+    return luckGenerator.generateNext()
 }
-executeSpecificLuckGenerator("Coin");
+// executeSpecificLuckGenerator("Coin");
